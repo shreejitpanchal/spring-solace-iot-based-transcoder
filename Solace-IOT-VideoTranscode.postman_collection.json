@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "b36b9a53-0dbe-4b82-811a-dac3732038c0",
+		"name": "Solace-IOT-VideoTranscode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2034343"
+	},
+	"item": [
+		{
+			"name": "uploadFile-SpringApp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Development/EnterpriseSANStorage/toystory_1788.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/solace/iot/uploadFile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"solace",
+						"iot",
+						"uploadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload-REST-SolaceTopic",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "default",
+						"value": "default",
+						"type": "text"
+					},
+					{
+						"key": "Solace-Message-ID",
+						"value": "solaceTranscodeDemo-123",
+						"type": "text"
+					},
+					{
+						"key": "Solace-Reply-Wait-Time-In-ms",
+						"value": "150",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"type": "text"
+					},
+					{
+						"key": "Content-Encoding",
+						"value": "application/octet-stream",
+						"type": "text"
+					},
+					{
+						"key": "filename",
+						"value": "earth_MP4_1280_10MG",
+						"type": "text"
+					},
+					{
+						"key": "fileExtension",
+						"value": "mp4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Development/EnterpriseSANStorage/earth_MP4_1280_10MG.mp4"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/raw/iot/video/stream",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"raw",
+						"iot",
+						"video",
+						"stream"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload-REST-SolaceTopic-Working-Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "default",
+						"value": "default",
+						"type": "text"
+					},
+					{
+						"key": "Solace-Delivery-Mode",
+						"value": "Persistent",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Solace-Message-ID",
+						"value": "shr-123",
+						"type": "text"
+					},
+					{
+						"key": "Solace-Reply-Wait-Time-In-ms",
+						"value": "15",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"type": "text"
+					},
+					{
+						"key": "content-Encoding",
+						"value": "application/octet-stream",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Development/EnterpriseSANStorage/small_312.3gp"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/raw/iot/video/stream",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"raw",
+						"iot",
+						"video",
+						"stream"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "downloadFile-SpringApp",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Development/Solace_Learning/toystory.mp4",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/solace/iot/downloadFile/small_312.3gp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"solace",
+						"iot",
+						"downloadFile",
+						"small_312.3gp"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
